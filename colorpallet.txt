@@ -1,0 +1,6 @@
+white #D9CCC1
+lite blue #03688f
+blue #024059
+dark blue #012A3A
+orange #BF6415
+brown #8C503A

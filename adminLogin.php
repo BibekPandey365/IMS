@@ -32,7 +32,7 @@
         {
             session_start();
             $_SESSION['AdminUserName'] = $_POST['UserName'];
-            header("location: adminPage.php");
+            header("location: AdminPanel/adminHome.php");
             exit();
         }
         else
