@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="adminStyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     <title>Admin Page</title>
 </head>
@@ -54,12 +54,12 @@
 
     <div class="main">
         <div class="header">
-            <h1>ADMIN PANEL</h1><br><br>
-        </div>
-        <div class="content">
+            <h1>USER</h1><br><br>
             <form method="post">
                 <button type="submit" name="Logout">LOGOUT</button>
             </form>
+        </div>
+        <div class="content">
         </div>
     </div>
 </body>

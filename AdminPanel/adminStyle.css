@@ -107,10 +107,11 @@ body {
     margin-left: 80px;
 
     transition-duration: 0.5s;
+    display: flex;
 }
 
 #check:checked ~ .main {
-    margin-left: 300px;
+    margin-left: 280px;
 }
 
 #check:hover ~ .sidebar #close {
@@ -140,4 +141,51 @@ body {
 
 #check:checked ~ .sidebar ul li label {
     font-size: 25px;
+}
+
+.header {
+    margin-left:-50px;
+    padding-left: 50px;
+    height: 80.5px;;
+    position: fixed;
+    display: flex;
+    top: 0px;
+    width: 100%;
+    color: #D9CCC1;
+    background-color: #03688f;
+}
+
+.header h1 {
+    position: relative;
+    align-self: center;
+    left: 29%;
+    font-size: 50px;
+    width: 300px;
+    text-align: center;
+}
+
+
+.header form{
+    position: fixed;
+    right: 60px;
+    width: 50px;
+    align-self: center;
+}
+
+.header form button {
+    width: 90px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid #D9CCC1;
+    color: #D9CCC1;
+    background-color: #024059;
+
+    transition-duration: 0.5s;
+}
+
+.header form button:hover{
+    font-size: 22px;
+    background-color: #03688f;
+    border-radius: 2px;
 }

@@ -7,15 +7,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Admin Login Page</title>
 </head>
 <body>
-    <form method="post">
+    <div class="loginBox">
         <h1>Admin Login</h1></br></br>
-        UserName:<input type="text" name="UserName" placeholder="UserName"></br></br>
-        Password:<input type="password" name="Password" placeholder="Password"></br></br>
-        <button type="submit" name="Login">LOGIN</button></br></br>
-    </form>
+        <form method="post">
+            <label>USERNAME</label><br>
+            <input type="text" name="UserName" placeholder="UserName"></br></br>
+            <label>PASSSWORD</label><br>
+            <input type="password" name="Password" placeholder="Password"></br></br>
+            <button type="submit" name="Login">LOGIN</button></br></br>
+        </form>
+    </div>
 </body>
 </html>
 

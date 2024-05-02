@@ -1,0 +1,19 @@
+* {
+    list-style: none;
+    font-family: "Monaco", monospace;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    background-color: #D9CCC1;
+}
+
+.loginBox {
+    position: fixed;
+    height: 800px;
+    width: 600px;
+
+    border: 4px, solid #012A3A;
+}
