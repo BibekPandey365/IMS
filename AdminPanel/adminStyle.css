@@ -167,16 +167,19 @@ body {
 
 .header form{
     position: fixed;
-    right: 60px;
+    right: 80px;
     width: 50px;
     align-self: center;
 }
 
 .header form button {
-    width: 90px;
+    display: flex;
+    width: 110px;
     height: 35px;
     font-size: 20px;
     border-radius: 5px;
+    justify-content: center;
+    padding-top: 4px;
     border: 2px solid #D9CCC1;
     color: #D9CCC1;
     background-color: #024059;
@@ -188,4 +191,12 @@ body {
     font-size: 22px;
     background-color: #03688f;
     border-radius: 2px;
+}
+
+.content {
+    position: fixed;
+    display: flex;
+    top: 85px;
+    width: 100%;
+    height: 100%;
 }

@@ -1,0 +1,36 @@
+
+.content form button{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 30px 32%;
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+
+    padding: 6px 0px;
+
+    font-size: 20px;
+
+    border: 2px solid #03688f;
+    color: #D9CCC1;
+    background-color: #024059;
+
+    transition-duration: 0.5s;
+}
+
+.content form button:hover {
+    font-size: 22px;
+    background-color: #03688f;
+    border: 2px solid #024059;
+    border-radius: 2px;
+
+    padding: 7px 0px;
+    margin: 28px 31%;
+    width: 145px;
+    height: 45px;
+}
+
+.content form button .material-symbols-rounded{
+    margin: 0px 6px;
+}

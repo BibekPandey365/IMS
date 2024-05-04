@@ -1,4 +1,6 @@
 <?php
+    require("../connection.php");
+    
     session_start();
 
     if(!isset($_SESSION['AdminUserName']))
@@ -50,7 +52,7 @@
             <li><a href="products.php"><span class="material-symbols-rounded">inventory_2</span> <label> PRODUCTS </label> </a></li>
             <li><a href="suppliers.php"><span class="material-symbols-rounded">conveyor_belt</span> <label> SUPPLIERS </label> </a></li>
             <li><a href="reports.php"><span class="material-symbols-rounded">inventory</span> <label> REPORTS </label> </a></li>
-            <li><a href="userManage.php"><span class="material-symbols-rounded">person_edit</span> <label> USERS </label> </a></li>
+            <li><a href="userManage.php"><span class="material-symbols-rounded">manage_accounts</span> <label> USERS </label> </a></li>
         </ul>
     </div>
 
@@ -58,7 +60,10 @@
         <div class="header">
             <h1>ADMIN HOME</h1><br><br>
             <form method="post">
-                <button type="submit" name="Logout">LOGOUT</button>
+                <button type="submit" name="Logout">
+                    <span class="material-symbols-rounded">logout</span>
+                    LOGOUT
+                </button>
             </form>
         </div>
         <div class="content">

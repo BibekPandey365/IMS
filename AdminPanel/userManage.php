@@ -1,4 +1,6 @@
 <?php
+    require("../connection.php");
+    
     session_start();
 
     if(!isset($_SESSION['AdminUserName']))
@@ -14,8 +16,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="userManage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-    <title>Admin Page</title>
+    <title>Manage User</title>
 </head>
 <body>
     <input type="checkbox" name="" id="check">
@@ -48,20 +51,32 @@
             <li><a href="products.php"><span class="material-symbols-rounded">inventory_2</span> <label> PRODUCTS </label> </a></li>
             <li><a href="suppliers.php"><span class="material-symbols-rounded">conveyor_belt</span> <label> SUPPLIERS </label> </a></li>
             <li><a href="reports.php"><span class="material-symbols-rounded">inventory</span> <label> REPORTS </label> </a></li>
-            <li><a href="userManage.php" id="currentPage"><span class="material-symbols-rounded">person_edit</span> <label> USERS </label> </a></li>
+            <li><a href="userManage.php" id="currentPage"><span class="material-symbols-rounded">manage_accounts</span> <label> USERS </label> </a></li>
         </ul>
     </div>
 
     <div class="main">
         <div class="header">
-            <h1>USER</h1><br><br>
+            <h1>MANAGE USER</h1><br><br>
             <form method="post">
-                <button type="submit" name="Logout">LOGOUT</button>
+                <button type="submit" name="Logout">
+                    <span class="material-symbols-rounded">logout</span>
+                    LOGOUT
+                </button>
             </form>
         </div>
         <div class="content">
+            <div>
+                <form method="post">
+                    <button type="submit" name="AddUser" href="userRegister.php">
+                        <span class="material-symbols-rounded">person_add</span>
+                        ADD USER
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
+    
 </body>
 </html>
 
@@ -74,4 +89,8 @@
         exit();
     }
 
+    if(isset($_POST['AddUser']))
+    {
+        header("location: userRegister.php");
+    }
 ?>
