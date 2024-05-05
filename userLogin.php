@@ -51,7 +51,7 @@
             if(password_verify($_POST['Password'], $res_fetch['password']))
             {
                 session_start();
-                $_SESSION['UserName'] = $_POST['UserName'];
+                $_SESSION['UserName'] = $res_fetch['userName'];
                 header("location: UserPanel/userHome.php");
                 exit();
             }

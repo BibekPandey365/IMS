@@ -1,0 +1,144 @@
+* {
+    list-style: none;
+    font-family: "Monaco", monospace;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #D9CCC1;
+}
+
+.content .intro{
+    background-image: url("Images/HomeImage.png");
+    width: 100%;
+    height: 100vmin;
+    background-size: cover;
+    background-position:bottom;
+}
+
+.content .intro #texts {
+    position: absolute;
+    margin: 10% 6%;
+    text-align: center;
+}
+
+.content .intro #texts h1 {
+    font-size: 80px;
+    margin-bottom: 12px;
+    width: 400px;
+    color: #024059;
+    border-bottom: 5px solid #BF6415;
+}
+
+.content .intro #texts h3 {
+    font-size: 40px;
+    color: #D9CCC1;
+    background-color: #BF6415;
+}
+
+.content #user {
+    background-image: url("Images/UserImage.png");
+    width: 100%;
+    height: 100vmin;
+    background-size: cover;
+    background-position:bottom;
+}
+
+.content #user #forground {
+    background-color: #0f3492e6;
+    width: 100%;
+    height: 100%;
+    color: #D9CCC1;
+    
+    padding: 50px 150px;
+    text-align: center;
+}
+
+.content #user #forground h1 {
+    position: relative;
+    left: 38%;
+    font-size: 80px;
+    width: 215px;
+    height: 90px;
+    border-bottom: 5px solid #BF6415;
+
+    margin-bottom: 40px;
+}
+
+.content #user #forground h3 {
+    text-justify: top;
+    padding: 15px 60px;
+    font-size: 30px;
+}
+
+.content #forground a{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 160px;
+    height: 50px;
+    border-radius: 5px;
+
+    margin: 28px 40%;
+
+    padding: 5px 5px;
+
+    font-size: 26px;
+
+    color: #D9CCC1;
+    border: 2px solid #BF6415;
+    background-color: #ab672b;
+
+    transition-duration: 0.5s;
+}
+
+.content #forground a:hover {
+    padding-top: 7px;
+    font-size: 24px;
+    background-color: #03688f;
+    border-radius: 2px;
+}
+
+.content #forground a .material-symbols-rounded{
+    margin: 0px 10px;
+    font-size: 30px;
+}
+
+.content #admin {
+    display: flex;
+    width: 100%;
+    height: 100vmin;
+}
+
+.content #admin img {
+    position: relative;
+    top: 168px;
+    width: 520px;
+    background-size: cover;
+}
+
+.content #admin #forground {
+    position: absolute;
+    margin-top: 40px;
+    width: 550px;
+    right: 30px;
+    text-align: center;
+}
+.content #admin #forground h1 {
+    position: relative;
+    color: #024059;
+    left: 32%;
+    font-size: 80px;
+    width: 215px;
+    height: 90px;
+    border-bottom: 5px solid #BF6415;
+    margin-bottom: 30px;
+}
+
+.content #admin #forground h3 {
+    text-justify: top;
+    font-size: 30px;
+}
