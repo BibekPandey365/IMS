@@ -74,6 +74,41 @@
                     </button>
                 </form>
             </div>
+
+            <div class="userTable">
+                <table>
+                    <thead>
+                        <th>Full Name</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php
+                                $sql = "SELECT * FROM `userregister`";
+                                $res = mysqli_query($conn, $sql);
+
+                                if(mysqli_num_rows($res) > 0)
+                                {
+                                    while($res_fetch = mysqli_fetch_assoc($res))
+                                    {
+                                        echo "
+                                        <tr>
+                                            <td>$res_fetch[fullName]</td>
+                                            <td>$res_fetch[userName]</td>
+                                            <td>$res_fetch[email]</td>
+                                            <td>
+                                                <a href='userManage.php?id=$res_fetch[userName]'>✖</a>
+                                            </td> 
+                                        </tr>";
+                                    }
+                                } 
+                            ?>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     
@@ -92,5 +127,11 @@
     if(isset($_POST['AddUser']))
     {
         header("location: userRegister.php");
+    }
+
+    if(isset($_GET['id']))
+    {
+        $sql = "DELETE FROM `userregister` WHERE `userName` = '$_GET[id]'";
+        $res = mysqli_query($conn, $sql);
     }
 ?>

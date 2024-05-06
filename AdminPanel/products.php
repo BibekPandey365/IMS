@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     <title>Admin Page</title>
 </head>
@@ -66,11 +67,73 @@
             </form>
         </div>
         <div class="content">
+            
+            <div id="addProduct">
+                <h2>Add New Product</h2><br>
+                <table border="1px" style="border-collapse: collapse;">
+                    <thead>
+                        <th>Product Name</th>
+                        <th>Initial Quantity</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <form method="get">
+                                <td>
+                                    <input type="text" name="Name">
+                                </td>
+                                <td>
+                                    <input type="number" min="0" name="Qty">
+                                </td>
+                                <td>
+                                    <button type="submit" name="Add">Add</button>
+                                </td>
+                            </form>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            
+            <div id="displayProduct">
+                <h2>Avaliable Products</h2><br>
+                <table border="1px" style="border-collapse: collapse;">
+                    <thead>
+                        <th>ProductID</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php
+                                $sql = "SELECT * FROM `product`";
+                                $res = mysqli_query($conn, $sql);
+
+                                if(mysqli_num_rows($res) > 0)
+                                {
+                                    while($res_fetch = mysqli_fetch_assoc($res))
+                                    {
+                                        echo "
+                                        <tr>
+                                            <td>$res_fetch[productID]</td>
+                                            <td>$res_fetch[productName]</td>
+                                            <td>$res_fetch[quantity]</td>
+                                            <td>
+                                                <a href='userManage.php?id=$res_fetch[productID]'>✖</a>
+                                            </td> 
+                                        </tr>";
+                                    }
+                                } 
+                            ?>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+    
 </body>
 </html>
-
 <?php
 
     if(isset($_POST['Logout']))
@@ -78,5 +141,36 @@
         session_destroy();
         header("location: ../adminLogin.php");
         exit();
+    }
+
+    if(isset($_GET['Add']))
+    {
+        $productName = $_GET['Name'];
+        $qty = $_GET['Qty'];
+
+        if(strlen($productName)==0)
+        {
+            echo "<script> alert('Product name cannot be empty !'); </script>";
+        }
+        else
+        {
+        
+            $sql = "INSERT INTO `product`(`productID`, `productName`, `quantity`) 
+             VALUES ('','$productName','$qty')";
+    
+            $res = mysqli_query($conn, $sql);
+    
+            if($res)
+            {
+                echo "<script> alert('New Product Added'); window.location.href='products.php';</script>";
+            }
+        }
+        
+    }
+
+    if(isset($_GET['id']))
+    {
+        $sql = "DELETE FROM `product` WHERE `productID` = '$_GET[id]'";
+        $res = mysqli_query($conn, $sql);
     }
 ?>

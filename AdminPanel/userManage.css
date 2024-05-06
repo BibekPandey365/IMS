@@ -34,3 +34,40 @@
 .content form button .material-symbols-rounded{
     margin: 0px 6px;
 }
+
+.content .userTable a {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(176, 56, 56);
+    border: 2px solid #024059;
+    color: #D9CCC1;
+    padding: 0px 4px;
+
+    transition-duration: 0.3s;
+}
+
+.content .userTable a:hover {
+    background-color: #024059;
+    border: 2px solid  rgb(176, 56, 56);
+}
+
+.content .userTable {
+    margin-top: 120px;
+}
+
+
+.content .userTable table, th, td {
+    border-collapse: collapse;
+    border: 2px solid #024059;
+
+    padding: 2px 4px;
+}
+
+.content .userTable th {
+    background-color: #024059;
+    color: #D9CCC1;
+}
+
+.content .userTable tr td {
+    color: #024059;
+}

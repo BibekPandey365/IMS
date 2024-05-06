@@ -1,0 +1,8 @@
+.content {
+    display: block;
+    padding: 40px 100px;
+}
+
+.content #addProduct, .content #displayProduct {
+    margin: 20px 40px;
+}
