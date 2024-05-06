@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     <link rel="stylesheet" href="homePage.css">
-    <title>MainPage</title>
+    <title>Home Page</title>
 </head>
 <body>
     <div class="header">
+        <div id="logo">
+            
+        </div>
+        <div id="links">
 
+        </div>
     </div>
 
     <div class="content">
@@ -55,13 +60,24 @@
             </div>
         </div>
 
-        <div id="about">
-
+        <div id="about">   
+            <div id="forground">
+                <h1>ABOUT</h1>
+                <h3>
+                An Inventory Management System (IMS) is a crucial tool for businesses to efficiently
+                 track and control their stock. Helps to track inventory level, and when to reorder.
+                 Being computrized system all the records are kept safe in database. Only authorized 
+                 person can access the inventory information. It helps to generate purchase and sales 
+                 reports as well and also keep track of suppliers the goods is supplied from.
+                </h3>
+            </div>
         </div>
     </div>
 
     <div class="footer">
-
+        <div id="copyright">
+            <label>Copyright © 2024 | Nepxel Studio</label>
+        </div>
     </div>
 </body>
 </html>
