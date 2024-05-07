@@ -120,7 +120,8 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        header("location: ../adminLogin.php");
+        #header("location: ../adminLogin.php");
+        header("location: ../homePage.php");
         exit();
     }
 

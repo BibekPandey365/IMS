@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="reports.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     <title>Admin Page</title>
 </head>
@@ -65,6 +66,14 @@
             </form>
         </div>
         <div class="content">
+            <h2>Download Product Report:<h2><br>
+            
+            <form method="post">
+                <button type="submit" name="ProductDl">
+                    <span class="material-symbols-rounded">download</span>
+                    PDF
+                </button>
+            </form>
         </div>
     </div>
 </body>
@@ -75,8 +84,25 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        header("location: ../adminLogin.php");
+        #header("location: ../adminLogin.php");
+        header("location: ../homePage.php");
         exit();
     }
 
+    if(isset($_POST['ProductDl']))
+    {
+        $sql = "SELECT * FROM `product`";
+        $res = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($res) > 0)
+        {
+            $myFile = fopen("ProductReport.txt", "w");
+            while($res_fetch = mysqli_fetch_assoc($res))
+            {
+                fwrite($myFile, "Product ID: " . $res_fetch['productID'] .
+                ", Product Name : " . $res_fetch['productName'] .
+                ", Quantity : " . $res_fetch['quantity'] . "\n");
+            }
+        } 
+    }
 ?>

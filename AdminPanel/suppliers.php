@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="suppliers.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     <title>Admin Page</title>
 </head>
@@ -65,6 +66,73 @@
             </form>
         </div>
         <div class="content">
+            <div id="addSupplier">
+                <h2>Add New Supplier</h2><br>
+                <table border="1px" style="border-collapse: collapse;">
+                    <thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <form method="get">
+                                <td>
+                                    <input type="text" name="Name">
+                                </td>
+                                <td>
+                                    <input type="text" name="Email">
+                                </td>
+                                <td>
+                                    <input type="text" name="Address">
+                                </td>
+                                <td>
+                                    <button type="submit" name="Add">Add</button>
+                                </td>
+                            </form>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            
+            <div id="displaySupplier">
+                <h2>Avaliable Suppliers</h2><br>
+                <table border="1px" style="border-collapse: collapse;">
+                    <thead>
+                        <th>SupplierID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php
+                                $sql = "SELECT * FROM `supplier`";
+                                $res = mysqli_query($conn, $sql);
+
+                                if(mysqli_num_rows($res) > 0)
+                                {
+                                    while($res_fetch = mysqli_fetch_assoc($res))
+                                    {
+                                        echo "
+                                        <tr>
+                                            <td>$res_fetch[supplierID]</td>
+                                            <td>$res_fetch[supplierName]</td>
+                                            <td>$res_fetch[supplierEmail]</td>
+                                            <td>$res_fetch[supplierAddress]</td>
+                                            <td>
+                                                <a href='suppliers.php?id=$res_fetch[supplierID]'>✖</a>
+                                            </td> 
+                                        </tr>";
+                                    }
+                                } 
+                            ?>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
@@ -75,8 +143,41 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        header("location: ../adminLogin.php");
+        #header("location: ../adminLogin.php");
+        header("location: ../homePage.php");
         exit();
     }
 
+    if(isset($_GET['Add']))
+    {
+        $supplierName = $_GET['Name'];
+        $supplierEmail = $_GET['Email'];
+        $supplierAddress = $_GET['Address'];
+        $qty = $_GET['Qty'];
+
+        if(strlen($supplierName)==0)
+        {
+            echo "<script> alert('Supplier's name cannot be empty !'); </script>";
+        }
+        else
+        {
+        
+            $sql = "INSERT INTO `supplier`(`supplierID`, `supplierName`, `supplierEmail`, `supplierAddress`) 
+             VALUES ('','$supplierName','$supplierEmail', '$supplierAddress')";
+    
+            $res = mysqli_query($conn, $sql);
+    
+            if($res)
+            {
+                echo "<script> alert('New Supplier Added'); window.location.href='suppliers.php';</script>";
+            }
+        }
+        
+    }
+
+    if(isset($_GET['id']))
+    {
+        $sql = "DELETE FROM `supplier` WHERE `supplierID` = '$_GET[id]'";
+        $res = mysqli_query($conn, $sql);
+    }
 ?>
