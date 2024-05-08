@@ -68,7 +68,7 @@
         <div class="content">
             <div>
                 <form method="post">
-                    <button type="submit" name="AddUser" href="userRegister.php">
+                    <button type="submit" name="AddUser">
                         <span class="material-symbols-rounded">person_add</span>
                         ADD USER
                     </button>
@@ -84,28 +84,26 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <?php
-                                $sql = "SELECT * FROM `userregister`";
-                                $res = mysqli_query($conn, $sql);
+                        <?php
+                            $sql = "SELECT * FROM `userregister`";
+                            $res = mysqli_query($conn, $sql);
 
-                                if(mysqli_num_rows($res) > 0)
+                            if(mysqli_num_rows($res) > 0)
+                            {
+                                while($res_fetch = mysqli_fetch_assoc($res))
                                 {
-                                    while($res_fetch = mysqli_fetch_assoc($res))
-                                    {
-                                        echo "
-                                        <tr>
-                                            <td>$res_fetch[fullName]</td>
-                                            <td>$res_fetch[userName]</td>
-                                            <td>$res_fetch[email]</td>
-                                            <td>
-                                                <a href='userManage.php?id=$res_fetch[userName]'>✖</a>
-                                            </td> 
-                                        </tr>";
-                                    }
-                                } 
-                            ?>
-                        </tr>
+                                    echo "
+                                    <tr>
+                                        <td>$res_fetch[fullName]</td>
+                                        <td>$res_fetch[userName]</td>
+                                        <td>$res_fetch[email]</td>
+                                        <td>
+                                            <a href='userManage.php?id=$res_fetch[userName]'>✖</a>
+                                        </td> 
+                                    </tr>";
+                                }
+                            } 
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -120,7 +118,6 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        #header("location: ../adminLogin.php");
         header("location: ../homePage.php");
         exit();
     }

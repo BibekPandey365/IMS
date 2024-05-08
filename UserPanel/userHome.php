@@ -15,12 +15,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="../AdminPanel/adminStyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     <title>User Home</title>
 </head>
 
 <body>
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <label for="check">
+            <span class="material-symbols-rounded" id="open" onclick="openNav()">menu</span>
+            <span class="material-symbols-rounded" id="close" onclick="openClose()">close</span>
+        </label>
+
+        <script>
+            if (localStorage.getItem("sidebarOpen") === "true")
+            {
+                document.getElementById("check").checked = true;
+            }
+            
+            function openNav() {
+                localStorage.setItem("sidebarOpen", "true");
+            }
+            function openClose() {
+                localStorage.setItem("sidebarOpen", "false");
+            }
+        </script>
+
+        <div id="sidebarHeader">
+            <h2>DASHBOARD</h2>
+        </div>
+
+        <ul>
+            <li><a href="userHome.php" id="currentPage"><span class="material-symbols-rounded">home</span> <label> HOME </label> </a></li>
+            <li><a href="purchase.php"><span class="material-symbols-rounded">shopping_cart</span> <label> Purchase </label> </a></li>
+            <li><a href="sell.php"><span class="material-symbols-rounded">sell</span> <label> Sale </label> </a></li>
+        </ul>
+    </div>
+
     <div class="main">
         <div class="header">
             <h1>USER HOME</h1><br><br>
@@ -41,7 +73,6 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        #header("location: ../adminLogin.php");
         header("location: ../homePage.php");
         exit();
     }

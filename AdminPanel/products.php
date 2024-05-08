@@ -120,7 +120,7 @@
                                             <td>$res_fetch[quantity]</td>
                                             <td>
                                                 <a href='products.php?id=$res_fetch[productID]'>✖</a>
-                                            </td> 
+                                            </td>
                                         </tr>";
                                     }
                                 } 
@@ -139,7 +139,6 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        #header("location: ../adminLogin.php");
         header("location: ../homePage.php");
         exit();
     }

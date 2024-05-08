@@ -29,15 +29,15 @@
         <form method="post">
             <div id="inputField">
                 <span class="material-symbols-rounded">badge</span>
-                <input type="text" name="FullName" placeholder="Fullname"></br></br>
+                <input type="text" name="FullName" placeholder="Fullname" required></br></br>
             </div>
             <div id="inputField">
                 <span class="material-symbols-rounded">person</span>
-                <input type="text" name="UserName" placeholder="Username"></br></br>
+                <input type="text" name="UserName" placeholder="Username" required></br></br>
             </div>
             <div id="inputField">
                 <span class="material-symbols-rounded">email</span>
-                <input type="text" name="Email" placeholder="Email"></br></br>
+                <input type="email" name="Email" placeholder="Email" required></br></br>
             </div>
             <div id="inputField">
                 <span class="material-symbols-rounded">lock</span>
@@ -57,6 +57,12 @@
 
     if(isset($_POST["Register"]))
     {
+        if(strlen($_POST['Password']) < 4)
+        {
+            echo "<script> alert('ERROR: Password must me atleast 4 characters long'); </script>";
+            return;
+        }
+
         $sql = "SELECT * FROM `userregister` WHERE
          `userName`='$_POST[UserName]' OR `password`='$_POST[Password]'";
 
