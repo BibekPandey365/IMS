@@ -68,6 +68,7 @@
                 <h2>Add Purchased Item</h2><br>
                 <table border="1px" style="border-collapse: collapse;">
                     <thead>
+                        <th>Date</th>
                         <th>Product Name</th>
                         <th>Supplier</th>
                         <th>Purchase Quantity</th>
@@ -75,6 +76,9 @@
                     <tbody>
                         <tr>
                             <form method="get">
+                                <td>
+                                    <input type="date" name="Date">
+                                </td>
                                 <td>
                                     <select name="ProductID">
                                         <?php
@@ -93,7 +97,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="SupplierID">
+                                    <select name="SupplierName">
                                         <?php
                                             $sql = "SELECT * FROM `supplier` WHERE 1";
 
@@ -103,7 +107,7 @@
                                             {
                                                 while($res_fetch = mysqli_fetch_assoc($res))
                                                 {
-                                                    echo "<option value='$res_fetch[supplierID]'>$res_fetch[supplierName]</option>";
+                                                    echo "<option value='$res_fetch[supplierName]'>$res_fetch[supplierName]</option>";
                                                 }
                                             } 
                                         ?>
@@ -136,18 +140,39 @@
     
     if(isset($_GET['Add']))
     {
+        $purchaseDate = $_GET['Date'];
         $productID = $_GET['ProductID'];
-        $supplierID = $_GET['SupplierID'];
+        $supplierName = $_GET['SupplierName'];
         $newQty = $_GET['AddQty'];
+
+        #Validating Date
+        $purchaseDateTime = new DateTime($purchaseDate);
+        $todayDateTime = new DateTime();
+        if($purchaseDateTime > $todayDateTime)
+        {
+            echo "<script> alert('Cannot Record Future Purchase') </script>";
+            return;
+        }
         
+        #Getting Current Quantity
         $res = mysqli_query($conn, "SELECT `quantity` FROM `product` WHERE `productID` = $productID");
         $res_fetch = mysqli_fetch_assoc($res);
         $currentQty = $res_fetch['quantity'];
         
         $totalQty = $currentQty + $newQty;
 
+        #Updating Quantity on Product Table
         $sql = "UPDATE `product` SET `quantity`= $totalQty WHERE `productID` = $productID";
+        $res = mysqli_query($conn, $sql);
 
+        #Getting Product Name From Product ID
+        $res = mysqli_query($conn, "SELECT `productName` FROM `product` WHERE `productID` = $productID");
+        $res_fetch = mysqli_fetch_assoc($res);
+        $productName = $res_fetch['productName'];
+
+        #Updating Purchase Table
+        $sql = "INSERT INTO `purchase`(`purchaseID`, `purchaseDate`, `productName`, `quantity`, `supplier`)
+         VALUES ('','$purchaseDate','$productName','$newQty','$supplierName')";
         $res = mysqli_query($conn, $sql);
 
         if($res)

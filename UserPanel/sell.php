@@ -69,12 +69,17 @@
                 <h2>Remove Sold Item</h2><br>
                 <table border="1px" style="border-collapse: collapse;">
                     <thead>
+                        <th>Date</th>
                         <th>Product Name</th>
                         <th>Selling Quantity</th>
+                        <th>Buyer's Name</th>
                     </thead>
                     <tbody>
                         <tr>
                             <form method="get">
+                                <td>
+                                    <input type="date" name="Date">
+                                </td>
                                 <td>
                                     <select name="ProductID">
                                         <?php
@@ -95,6 +100,9 @@
                                 
                                 <td>
                                     <input type="number" min="1" name="RemoveQty">
+                                </td>
+                                <td>
+                                    <input type="text" name="BuyerName" required>
                                 </td>
                                 <td>
                                     <button type="submit" name="Remove">Remove</button>
@@ -120,19 +128,41 @@
     
     if(isset($_GET['Remove']))
     {
+        $salesDate = $_GET['Date'];
         $productID = $_GET['ProductID'];
         $soldQty = $_GET['RemoveQty'];
+        $buyerName = $_GET['BuyerName'];
+
+        #Validating Date
+        $salesDateTime = new DateTime($salesDate);
+        $todayDateTime = new DateTime();
+        if($salesDateTime > $todayDateTime)
+        {
+            echo "<script> alert('Cannot Record Future Sales') </script>";
+            return;
+        }
         
+        #Getting Current Avaliable Quanitity
         $res = mysqli_query($conn, "SELECT `quantity` FROM `product` WHERE `productID` = $productID");
         $res_fetch = mysqli_fetch_assoc($res);
         $currentQty = $res_fetch['quantity'];
 
+        #Validating Quantity
         if($soldQty <= $currentQty)
         {
             $totalQty = $currentQty - $soldQty;
-    
+            #Updating Product Quantity
             $sql = "UPDATE `product` SET `quantity`= $totalQty WHERE `productID` = $productID";
-    
+            $res = mysqli_query($conn, $sql);
+
+            #Getting Product Name From Product ID
+            $res = mysqli_query($conn, "SELECT `productName` FROM `product` WHERE `productID` = $productID");
+            $res_fetch = mysqli_fetch_assoc($res);
+            $productName = $res_fetch['productName'];
+
+            #Updating Sales Table
+            $sql = "INSERT INTO `sales`(`salesID`, `salesDate`, `productName`, `quantity`, `buyer`)
+             VALUES ('','$salesDate','$productName','$soldQty','$buyerName')";
             $res = mysqli_query($conn, $sql);
     
             if($res)
