@@ -10,10 +10,15 @@
 <body>
     <div class="header">
         <div id="logo">
-            
+            <a href="homePage.php">
+                <img src="Images/NepxelStudio.png">
+            </a>
         </div>
-        <div id="links">
 
+        <div id="links">
+            <a href="#user">USER</a>
+            <a href="#admin">ADMIN</a>
+            <a href="#about">ABOUT</a>
         </div>
     </div>
 
@@ -76,7 +81,11 @@
 
     <div class="footer">
         <div id="copyright">
-            <label>Copyright © 2024 | Nepxel Studio</label>
+            <label>
+                Copyright © 2024 | Nepxel Studio
+                <img src="Images/NepxelStudioCropped.png" style="width:18px; height:auto;">
+            </label>
+            
         </div>
     </div>
 </body>

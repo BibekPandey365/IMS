@@ -66,7 +66,7 @@
             </form>
         </div>
         <div class="content">
-            <div>
+            <div class="addButton">
                 <form method="post">
                     <button type="submit" name="AddUser">
                         <span class="material-symbols-rounded">person_add</span>
@@ -76,6 +76,7 @@
             </div>
 
             <div class="userTable">
+                <h2>Current Users:</h2><br>
                 <table>
                     <thead>
                         <th>Full Name</th>

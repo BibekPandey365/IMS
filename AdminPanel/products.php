@@ -69,11 +69,12 @@
         <div class="content">
             
             <div id="addProduct">
-                <h2>Add New Product</h2><br>
+                <h2>Add New Product:</h2><br>
                 <table border="1px" style="border-collapse: collapse;">
                     <thead>
                         <th>Product Name</th>
                         <th>Initial Quantity</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -95,7 +96,7 @@
             <br>
             
             <div id="displayProduct">
-                <h2>Avaliable Products</h2><br>
+                <h2>Avaliable Products:</h2><br>
                 <table border="1px" style="border-collapse: collapse;">
                     <thead>
                         <th>ProductID</th>

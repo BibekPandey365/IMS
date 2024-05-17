@@ -63,7 +63,7 @@
                 </button>
             </form>
         </div>
-        <div class="content">
+        <div class="content" style="padding: 60px 80px;">
             <div id="addItem">
                 <h2>Add Purchased Item</h2><br>
                 <table border="1px" style="border-collapse: collapse;">
@@ -72,6 +72,7 @@
                         <th>Product Name</th>
                         <th>Supplier</th>
                         <th>Purchase Quantity</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <tr>

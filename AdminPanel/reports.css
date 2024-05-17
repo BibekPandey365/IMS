@@ -1,4 +1,16 @@
 .content {
     display: block;
-    padding: 40px 100px;
+    padding: 40px 40px;
+}
+
+.content h2 {
+    border: none;
+}
+
+.content #reportArea {
+    border-left: 12px solid #BF6415;
+    border-top-left-radius: 10px;
+
+    margin-top: 20px;
+    margin-left: 40px;
 }

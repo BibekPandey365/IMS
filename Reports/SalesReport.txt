@@ -1,0 +1,14 @@
+Sales ID: 1
+ Sales Date : 2024-05-09
+ Product Name : Aalu
+ Quantity : 15
+ Buyer : 
+
+
+Sales ID: 2
+ Sales Date : 2024-05-08
+ Product Name : Aalu
+ Quantity : 10
+ Buyer : Suman
+
+

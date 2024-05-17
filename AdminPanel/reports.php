@@ -66,14 +66,37 @@
             </form>
         </div>
         <div class="content">
-            <h2>Download Product Report:<h2><br>
-            
-            <form method="post">
-                <button type="submit" name="ProductDl">
-                    <span class="material-symbols-rounded">download</span>
-                    PDF
-                </button>
-            </form>
+            <div id="reportArea">
+                <h2>Download Product Report:<h2>
+                <form method="post">
+                    <button type="submit" name="ProductDl">
+                        <span class="material-symbols-rounded">download</span>
+                        PDF
+                    </button>
+                </form>
+            </div>
+            <br><br>
+
+            <div id="reportArea">
+                <h2>Download Purchase Report:<h2>
+                <form method="post">
+                    <button type="submit" name="PurchaseDl">
+                        <span class="material-symbols-rounded">download</span>
+                        PDF
+                    </button>
+                </form>
+            </div>
+            <br><br>
+
+            <div id="reportArea">
+                <h2>Download Sales Report:<h2>
+                <form method="post">
+                    <button type="submit" name="SalesDl">
+                        <span class="material-symbols-rounded">download</span>
+                        PDF
+                    </button>
+                </form>
+            </div> 
         </div>
     </div>
 </body>
@@ -95,12 +118,50 @@
 
         if(mysqli_num_rows($res) > 0)
         {
-            $myFile = fopen("ProductReport.txt", "w");
+            $myFile = fopen("../Reports/ProductReport.txt", "w");
             while($res_fetch = mysqli_fetch_assoc($res))
             {
                 fwrite($myFile, "Product ID: " . $res_fetch['productID'] .
-                ", Product Name : " . $res_fetch['productName'] .
-                ", Quantity : " . $res_fetch['quantity'] . "\n");
+                "\n Product Name : " . $res_fetch['productName'] .
+                "\n Quantity : " . $res_fetch['quantity'] . "\n\n\n");
+            }
+        } 
+    }
+
+    if(isset($_POST['PurchaseDl']))
+    {
+        $sql = "SELECT * FROM `purchase`";
+        $res = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($res) > 0)
+        {
+            $myFile = fopen("../Reports/PurchaseReport.txt", "w");
+            while($res_fetch = mysqli_fetch_assoc($res))
+            {
+                fwrite($myFile, "Purchase ID: " . $res_fetch['purchaseID'] .
+                "\n Purchase Date : " . $res_fetch['purchaseDate'] .
+                "\n Product Name : " . $res_fetch['productName'] .
+                "\n Quantity : " . $res_fetch['quantity'] .
+                "\n Supplier : " . $res_fetch['supplier'] . "\n\n\n");
+            }
+        } 
+    }
+
+    if(isset($_POST['SalesDl']))
+    {
+        $sql = "SELECT * FROM `sales`";
+        $res = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($res) > 0)
+        {
+            $myFile = fopen("../Reports/SalesReport.txt", "w");
+            while($res_fetch = mysqli_fetch_assoc($res))
+            {
+                fwrite($myFile, "Sales ID: " . $res_fetch['salesID'] .
+                "\n Sales Date : " . $res_fetch['salesDate'] .
+                "\n Product Name : " . $res_fetch['productName'] .
+                "\n Quantity : " . $res_fetch['quantity'] .
+                "\n Buyer : " . $res_fetch['buyer'] . "\n\n\n");
             }
         } 
     }

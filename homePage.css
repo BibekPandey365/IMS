@@ -11,6 +11,44 @@ body {
     background-color: #D9CCC1;
 }
 
+.header {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #03508ce4;
+    color: #D9CCC1;
+    height: 80px;
+    width: 100%;
+}
+
+.header #logo img{
+    max-height: 100%;
+    width: auto;
+    margin-left: 10px;
+}
+
+.header #links {
+    margin-right: 30px;
+    align-content: center;
+    justify-content: middle;
+}
+
+.header #links a {
+    font-size: 30px;
+    margin-right: 35px;
+    color: #D9CCC1;
+    border-bottom: 2px solid #BF6415;
+
+    transition-duration: 0.5s;
+}
+
+.header #links a:hover {
+    font-size: 32px;
+    color: #edbf96;
+    border-bottom: 2px solid #BF6415;
+}
+
 .content .intro{
     background-image: url("Images/HomeImage.png");
     width: 100%;

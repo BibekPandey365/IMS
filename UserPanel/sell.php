@@ -63,7 +63,7 @@
                 </button>
             </form>
         </div>
-        <div class="content">
+        <div class="content" style="padding: 60px 80px;">
             
             <div id="removeItem">
                 <h2>Remove Sold Item</h2><br>
@@ -73,6 +73,7 @@
                         <th>Product Name</th>
                         <th>Selling Quantity</th>
                         <th>Buyer's Name</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <tr>

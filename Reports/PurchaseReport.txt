@@ -1,0 +1,7 @@
+Purchase ID: 1
+ Purchase Date : 2024-05-09
+ Product Name : piyaj
+ Quantity : 5
+ Supplier : Amrit Supplier
+
+

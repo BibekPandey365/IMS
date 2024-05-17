@@ -67,12 +67,13 @@
         </div>
         <div class="content">
             <div id="addSupplier">
-                <h2>Add New Supplier</h2><br>
+                <h2>Add New Supplier:</h2><br>
                 <table border="1px" style="border-collapse: collapse;">
                     <thead>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Address</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -97,7 +98,7 @@
             <br>
             
             <div id="displaySupplier">
-                <h2>Avaliable Suppliers</h2><br>
+                <h2>Avaliable Suppliers:</h2><br>
                 <table border="1px" style="border-collapse: collapse;">
                     <thead>
                         <th>SupplierID</th>
