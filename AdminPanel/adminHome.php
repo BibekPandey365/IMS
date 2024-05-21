@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="adminHome.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     
 
@@ -67,6 +68,16 @@
             </form>
         </div>
         <div class="content">
+            <div id="forground">
+                <h1>HELLO, <?php echo "$_SESSION[AdminUserName]"; ?></h1>
+                <h3>
+                    Welcome To Admin Panel,<br>
+                    You can manage users, add or remove them from system.
+                    You can add or remove products avaliable on the investory. 
+                    Suppliers can also be added and removed as well.
+                    Inventoty, purchase and sales reports can also be generated.
+                </h3><br>
+            </div>
         </div>
     </div>
 </body>
@@ -76,7 +87,8 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        header("location: ../homePage.php");
+        #header("location: ../homePage.php");
+        echo "<script> window.location.href='../homePage.php'; </script>";
         exit();
     }
 

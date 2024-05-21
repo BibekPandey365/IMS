@@ -134,7 +134,8 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        header("location: ../homePage.php");
+        #header("location: ../homePage.php");
+        echo "<script> window.location.href='../homePage.php'; </script>";
         exit();
     }
 
@@ -151,7 +152,7 @@
         $todayDateTime = new DateTime();
         if($purchaseDateTime > $todayDateTime)
         {
-            echo "<script> alert('Cannot Record Future Purchase') </script>";
+            echo "<script> alert('Cannot Record Future Purchase'); window.location.href='purchase.php';  </script>";
             return;
         }
         

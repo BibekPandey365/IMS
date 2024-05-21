@@ -55,7 +55,7 @@
 
     <div class="main">
         <div class="header">
-            <h1>SELL</h1><br><br>
+            <h1>SALES</h1><br><br>
             <form method="post">
                 <button type="submit" name="Logout">
                     <span class="material-symbols-rounded">logout</span>
@@ -122,8 +122,8 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        #header("location: ../userLogin.php");
-        header("location: ../homePage.php");
+        #header("location: ../homePage.php");
+        echo "<script> window.location.href='../homePage.php'; </script>";
         exit();
     }
     

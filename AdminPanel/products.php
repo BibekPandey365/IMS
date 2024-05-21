@@ -140,7 +140,8 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        header("location: ../homePage.php");
+        #header("location: ../homePage.php");
+        echo "<script> window.location.href='../homePage.php'; </script>";
         exit();
     }
 
@@ -173,5 +174,6 @@
     {
         $sql = "DELETE FROM `product` WHERE `productID` = '$_GET[id]'";
         $res = mysqli_query($conn, $sql);
+        echo "<script> alert('Product Removed !!'); window.location.href='products.php';</script>";
     }
 ?>

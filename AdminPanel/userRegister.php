@@ -29,11 +29,11 @@
         <form method="post">
             <div id="inputField">
                 <span class="material-symbols-rounded">badge</span>
-                <input type="text" name="FullName" placeholder="Fullname" required></br></br>
+                <input type="text" name="FullName" placeholder="Fullname" required pattern="[a-zA-Z\s]+"></br></br>
             </div>
             <div id="inputField">
                 <span class="material-symbols-rounded">person</span>
-                <input type="text" name="UserName" placeholder="Username" required></br></br>
+                <input type="text" name="UserName" placeholder="Username" required pattern="[a-zA-Z]+[a-zA-Z0-9]*"></br></br>
             </div>
             <div id="inputField">
                 <span class="material-symbols-rounded">email</span>
@@ -57,6 +57,12 @@
 
     if(isset($_POST["Register"]))
     {
+        if(strlen($_POST['UserName']) < 3)
+        {
+            echo "<script> alert('ERROR: Username must me atleast 3 characters long'); </script>";
+            return;
+        }
+        
         if(strlen($_POST['Password']) < 4)
         {
             echo "<script> alert('ERROR: Password must me atleast 4 characters long'); </script>";

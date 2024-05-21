@@ -5,7 +5,7 @@
 
     if(!isset($_SESSION['AdminUserName']))
     {
-        header("location: adminLogin.php");
+        header("location: ../homePage.php");
         exit();
     }
 ?>
@@ -119,13 +119,15 @@
     if(isset($_POST['Logout']))
     {
         session_destroy();
-        header("location: ../homePage.php");
+        #header("location: ../homePage.php");
+        echo "<script> window.location.href='../homePage.php'; </script>";
         exit();
     }
 
-    if(isset($_POST['AddUser']))
+    if(isset($_POST["AddUser"]))
     {
-        header("location: userRegister.php");
+        echo "<script> window.location.href='userRegister.php' </script>";
+        #header("location: userRegister.php");
     }
 
     if(isset($_GET['id']))

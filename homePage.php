@@ -82,8 +82,7 @@
     <div class="footer">
         <div id="copyright">
             <label>
-                Copyright © 2024 | Nepxel Studio
-                <img src="Images/NepxelStudioCropped.png" style="width:18px; height:auto;">
+                Copyright © 2024 | Bibek Pandey
             </label>
             
         </div>
