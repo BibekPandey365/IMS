@@ -20,11 +20,11 @@
         <form method="post">
             <div id="inputField">
                 <span class="material-symbols-rounded">Person</span>
-                <input type="text" name="UserName_Email" placeholder="Username / Email"></br></br>
+                <input type="text" name="UserName_Email" placeholder="Username / Email" required></br></br>
             </div>
             <div id="inputField">
                 <span class="material-symbols-rounded">lock</span>
-                <input type="password" name="Password" placeholder="Password"></br></br>
+                <input type="password" name="Password" placeholder="Password" required></br></br>
             </div>
             
             <button type="submit" name="Login">
